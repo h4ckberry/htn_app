@@ -8,18 +8,27 @@
         <title>obnizID登録</title>
     </head>
     <body>
-            <div class="body"></div>
-            <div class="grad"></div>
-            <div class="header">
-              <div>Site<span>Random</span></div>
-            </div>
-            <br>
-            <div class="login">
-                <input id="app"  type="text" placeholder={{displayName}}  name="なまえ"><br>
-                <input type="text" placeholder="obniz id" name="obniz ID"><br>
-                <input id="app" type="hidden" value={{userId}}><br>
-                <input type="button" value="Login">
-            </div>
+
+      <div id="app">
+      <form id="form" v-on="submit:addEvent">
+        <!-- それぞれに作ったvaidatorに通す -->
+        <p>title:<input v-model="newEvent.title | titleValidator"  name='title' value=''></p>
+        <p>description:<textarea v-model="newEvent.description | descriptionValidator" name='description' value=''></textarea></p>
+        <p>date:<input v-model="newEvent.date | dateValidator" name='date' value=''></p>
+        <p>location:<input v-model="newEvent.location | locationValidator" name='location' value=''></p>
+        <input type="submit" value="イベントを作成">
+      </form>
+      <!-- error表示欄 -->
+      <ul id="errors" class="display-none">
+        <!-- you need to implement "display-none" class which is simply display nothing -->
+        <li v-show="!validation.title">タイトルが未入力です</li>
+        <li v-show="!validation.description">説明が未入力です</li>
+        <li v-show="!validation.date">日付が未入力です</li>
+        <li v-show="!validation.location">場所が未入力です</li>
+      </ul>
+
+    </div>
+
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
