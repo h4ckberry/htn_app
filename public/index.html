@@ -8,7 +8,8 @@
         <title>obnizID登録</title>
     </head>
     <body>
-        <div class="body"></div>
+        <div id="app">
+            <div class="body"></div>
             <div class="grad"></div>
             <div class="header">
               <div>Site<span>Random</span></div>
@@ -19,14 +20,7 @@
                 <input type="text" placeholder="obniz id" name="obniz ID"><br>
                 <input type="hidden" value={{userId}}><br>
                 <input type="button" value="Login">
-        </div>
-        <div id="app">
-            <button @click=logout>ログアウトする</button>
-
-            <h1>{{displayName}}</h1>
-            <p>{{userId}}</p>
-            <p>{{statusMessage}}</p>
-            <img :src=pictureUrl alt="profile" width="200px" />
+            </div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
