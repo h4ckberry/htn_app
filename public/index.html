@@ -8,7 +8,6 @@
         <title>obnizID登録</title>
     </head>
     <body>
-        <div id="app">
             <div class="body"></div>
             <div class="grad"></div>
             <div class="header">
@@ -16,12 +15,11 @@
             </div>
             <br>
             <div class="login">
-                <input type="text" placeholder={{displayName}}  name="なまえ"><br>
+                <input id="app"  type="text" placeholder={{displayName}}  name="なまえ"><br>
                 <input type="text" placeholder="obniz id" name="obniz ID"><br>
-                <input type="hidden" value={{userId}}><br>
+                <input id="app" type="hidden" value={{userId}}><br>
                 <input type="button" value="Login">
             </div>
-        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
