@@ -34,7 +34,7 @@ const app = new Vue({
     //ページを開いた時に実行される
     mounted: async function(){
         await liff.init({
-            liffId: 'xxxxxxxxxxx' // ! 先ほどメモしたものを入力してください。
+            liffId: '1655673745-xPEXoDJP' // ! 先ほどメモしたものを入力してください
         });
 
         //LINE内のブラウザかどうか
