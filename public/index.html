@@ -1,23 +1,23 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="login.css">
-    <title>HelloTechAcademy</title>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+        <title>LIFF v2 ハンズオン</title>
+    </head>
+    <body>
+        <div id="app">
+            <button @click=logout>ログアウトする</button>
 
-  <div class="body"></div>
-    <div class="grad"></div>
-    <div class="header">
-      <div>Site<span>Random</span></div>
-    </div>
-    <br>
-    <div class="login">
-        <input type="text" placeholder="username" name="user"><br>
-        <input type="password" placeholder="password" name="password"><br>
-        <input type="button" value="Login">
-    </div>
+            <h1>{{displayName}}</h1>
+            <p>{{userId}}</p>
+            <p>{{statusMessage}}</p>
+            <img :src=pictureUrl alt="profile" width="200px" />
+        </div>
 
-
-  </body>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+        <script src="script.js"></script>
+    </body>
 </html>
