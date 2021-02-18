@@ -1,3 +1,4 @@
+const url = 'https://0ksdu1zi1wgh.cybozu.com/k/v1/record.json'
 const config = {
         headers: {
             'X-Cybozu-Authorization': '2Rcx3RVoSLipIH7atPG5w8A8LE5n8sTKSUGHTEEA',
@@ -6,10 +7,10 @@ const config = {
     };
 
 const obj = {
-  'app': 1,
-  'record': {
-    'text': {
-      'value': 'sample text'
+  "app": 1,
+  "record": {
+    "text": {
+      "value": "sample text"
     }
   }
 };
@@ -39,10 +40,7 @@ var app = new Vue({
       this.form.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
     },
     createUser: function() {
-      axios.post('https://0ksdu1zi1wgh.cybozu.com/k/v1/record.json', {
-        body: obj,
-      }, config
-      )
+      axios.post(url, obj, config)
       .then(function (response) {
         console.log(response);
       })
