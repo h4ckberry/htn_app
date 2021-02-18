@@ -29,6 +29,15 @@ var app = new Vue({
   },
 
   methods: {
+    //プロフィール取得関数
+    getProfile: async function () {
+      const accessToken = liff.getAccessToken();
+      const profile = await liff.getProfile();
+      this.form.displayName = profile.displayName; //LINEの名前
+      this.form.userId = profile.userId; //LINEのID
+      this.form.pictureUrl = profile.pictureUrl; //LINEのアイコン画像
+      this.form.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
+    },
     createUser: function() {
       axios.post('https://0ksdu1zi1wgh.cybozu.com/k/v1/record.json', {
         body: obj,
@@ -41,18 +50,6 @@ var app = new Vue({
         console.log(error);
       });
     }
-  },
-
-  methods: {
-    //プロフィール取得関数
-    getProfile: async function () {
-      const accessToken = liff.getAccessToken();
-      const profile = await liff.getProfile();
-      this.form.displayName = profile.displayName; //LINEの名前
-      this.form.userId = profile.userId; //LINEのID
-      this.form.pictureUrl = profile.pictureUrl; //LINEのアイコン画像
-      this.form.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
-    },
   },
 
   //ページを開いた時に実行される
