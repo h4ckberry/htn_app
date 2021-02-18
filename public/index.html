@@ -18,7 +18,7 @@
           <input v-model="form.userId" type="hidden" class="form-control" id="exampleInput"/>
         </div>
         <div class="btn-container">
-          <button type="submit" v-bind:disabled="!isValid"class="btn btn-primary">登録する</button>
+          <button type="submit" v-on:click="createUser" v-bind:disabled="!isValid"class="btn btn-primary">登録する</button>
         </div>
       </form>
       <h1>{{form.displayName}}</h1>
@@ -28,6 +28,7 @@
     </div>
 
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="main.js"></script>
   </body>

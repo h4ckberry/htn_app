@@ -12,6 +12,38 @@ var app = new Vue({
     };
   },
 
+const url = 'https://0ksdu1zi1wgh.cybozu.com/k/v1/record.json'
+const config = {
+        headers: {
+            'X-Cybozu-Authorization': '2Rcx3RVoSLipIH7atPG5w8A8LE5n8sTKSUGHTEEA',
+            'Content-Type': 'application/json'
+        }
+    };
+
+let obj = {
+  'app': 1,
+  'record': {
+    'text': {
+      'value': 'sample text'
+    }
+  }
+};
+
+  methods: {
+    createUser: function() {
+      axios.post(url, {
+        body: obj,
+      }, config
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
+  }
+
   methods: {
     //プロフィール取得関数
     getProfile: async function () {
