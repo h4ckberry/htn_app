@@ -72,10 +72,10 @@
           getProfile: async function () {
             const accessToken = liff.getAccessToken();
             const profile = await liff.getProfile();
-            this.displayName = profile.displayName; //LINEの名前
-            this.userId = profile.userId; //LINEのID
-            this.pictureUrl = profile.pictureUrl; //LINEのアイコン画像
-            this.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
+            this.form.displayName = profile.displayName; //LINEの名前
+            this.form.userId = profile.userId; //LINEのID
+            this.form.pictureUrl = profile.pictureUrl; //LINEのアイコン画像
+            this.form.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
           },
         },
 
