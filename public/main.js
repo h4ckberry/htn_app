@@ -1,3 +1,19 @@
+const config = {
+        headers: {
+            'X-Cybozu-Authorization': '2Rcx3RVoSLipIH7atPG5w8A8LE5n8sTKSUGHTEEA',
+            'Content-Type': 'application/json'
+        }
+    };
+
+const obj = {
+  'app': 1,
+  'record': {
+    'text': {
+      'value': 'sample text'
+    }
+  }
+};
+
 var app = new Vue({
   el: "#app",
   data() {
@@ -12,26 +28,9 @@ var app = new Vue({
     };
   },
 
-const url = 'https://0ksdu1zi1wgh.cybozu.com/k/v1/record.json'
-const config = {
-        headers: {
-            'X-Cybozu-Authorization': '2Rcx3RVoSLipIH7atPG5w8A8LE5n8sTKSUGHTEEA',
-            'Content-Type': 'application/json'
-        }
-    };
-
-let obj = {
-  'app': 1,
-  'record': {
-    'text': {
-      'value': 'sample text'
-    }
-  }
-};
-
   methods: {
     createUser: function() {
-      axios.post(url, {
+      axios.post('https://0ksdu1zi1wgh.cybozu.com/k/v1/record.json', {
         body: obj,
       }, config
       )
@@ -42,7 +41,7 @@ let obj = {
         console.log(error);
       });
     }
-  }
+  },
 
   methods: {
     //プロフィール取得関数
