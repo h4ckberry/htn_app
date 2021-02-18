@@ -2,31 +2,43 @@
 <html>
   <head>
     <title>Obniz ID登録</title>
+    <link rel="stylesheet/less" type="text/css" href="css/styles.less" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
   </head>
   <body>
-    <div class="form-container container" id="app">
-      <form>
-        <div class="form-group">
+    <div class="wrapper">
+      <div class="container">
+
+        <h1>Welcome</h1>
+        
+        <form class="form" id="app">
           <label for="exampleInput">ユーザー</label>
-          <input v-model="form.displayName"  type="text" class="form-control" id="exampleInput"/>
-        </div>
-        <div class="form-group">
+          <input v-model="form.displayName"  type="text" id="exampleInput"/>
           <label for="exampleInput">obnizId</label>
-          <input v-model="form.obnizId" type="tel" class="form-control" id="exampleInput" placeholder="1234-5678"/>
-        </div>
-          <div class="form-group"> <label for="exampleInput"></label>
-          <input v-model="form.userId" type="hidden" class="form-control" id="exampleInput"/>
-        </div>
-        <div class="btn-container">
-          <button type="submit" v-on:click="createUser" v-bind:disabled="!isValid" class="btn btn-primary">登録する</button>
-        </div>
-      </form>
+          <input v-model="form.obnizId" type="tel" id="exampleInput" placeholder="1234-5678"/>
+          <button type="submit" v-on:click="createUser" v-bind:disabled="!isValid" id="login-button">新規登録する</button
+        </form>
+      </div>
+      
+      <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
 
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/background.js"></script>
   </body>
 </html>
 
