@@ -1,37 +1,121 @@
 <!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-        <link rel="stylesheet" href="login.css">
-        <title>obnizID登録</title>
-    </head>
-    <body>
-
-      <div id="app">
-      <form id="form" v-on="submit:addEvent">
-        <!-- それぞれに作ったvaidatorに通す -->
-        <p>title:<input v-model="newEvent.title | titleValidator"  name='title' value=''></p>
-        <p>description:<textarea v-model="newEvent.description | descriptionValidator" name='description' value=''></textarea></p>
-        <p>date:<input v-model="newEvent.date | dateValidator" name='date' value=''></p>
-        <p>location:<input v-model="newEvent.location | locationValidator" name='location' value=''></p>
-        <input type="submit" value="イベントを作成">
+<html>
+  <head>
+    <title>Welcome to Vue</title>
+  </head>
+  <body>
+    <div class="form-container container" id="app">
+      <form>
+        <div class="form-group">
+          <label for="exampleInput">ユーザー</label>
+          <input
+            v-model="form.displayName"
+            type="text"
+            class="form-control"
+            id="exampleInput"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInput">obnizId</label>
+          <input
+            v-model="form.obnizId"
+            type="tel"
+            class="form-control"
+            id="exampleInput"
+            placeholder="1234-5678"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInput"></label>
+          <input
+            v-model="form.userId"
+            type="hidden"
+            class="form-control"
+            id="exampleInput"
+          />
+        </div>
+        <div class="btn-container">
+          <button
+            type="submit"
+            v-bind:disabled="!isValid"
+            class="btn btn-primary"
+          >
+            送信
+          </button>
+        </div>
       </form>
-      <!-- error表示欄 -->
-      <ul id="errors" class="display-none">
-        <!-- you need to implement "display-none" class which is simply display nothing -->
-        <li v-show="!validation.title">タイトルが未入力です</li>
-        <li v-show="!validation.description">説明が未入力です</li>
-        <li v-show="!validation.date">日付が未入力です</li>
-        <li v-show="!validation.location">場所が未入力です</li>
-      </ul>
-
+      <h1>{{form.displayName}}</h1>
+      <p>{{form.userId}}</p>
+      <p>{{form.statusMessage}}</p>
+      <img :src="form.pictureUrl" alt="profile" width="200px" />
     </div>
 
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            form: {
+              displayName: "",
+              userId: "",
+              statusMessage: "",
+              pictureUrl: "",
+              obnizId: "",
+            },
+          };
+        },
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-        <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-        <script type="text/javascript" src="script.js"></script>
-    </body>
+        methods: {
+          //プロフィール取得関数
+          getProfile: async function () {
+            const accessToken = liff.getAccessToken();
+            const profile = await liff.getProfile();
+            this.displayName = profile.displayName; //LINEの名前
+            this.userId = profile.userId; //LINEのID
+            this.pictureUrl = profile.pictureUrl; //LINEのアイコン画像
+            this.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
+          },
+        },
+
+        //ページを開いた時に実行される
+        mounted: async function () {
+          await liff.init({
+            liffId: "1655673745-xPEXoDJP", // ! 先ほどメモしたものを入力してください。
+          });
+
+          //LINE内のブラウザかどうか
+          if (liff.isInClient()) {
+            alert("LINE内のブラウザ");
+            this.getProfile(); //LINE内で開いた場合は特にログイン処理なしで大丈夫
+          } else {
+            //外部ブラウザかどうか
+            if (liff.isLoggedIn()) {
+              alert("外部ブラウザ");
+              this.getProfile();
+            } else {
+              liff.login();
+            }
+          }
+        },
+
+        computed: {
+          validation() {
+            const form = this.form;
+            return {
+              firstName: !!form.firstName,
+              lastName: !!form.lastName,
+            };
+          },
+          isValid() {
+            var validation = this.validation;
+            return Object.keys(validation).every(function (key) {
+              return validation[key];
+            });
+          },
+        },
+      });
+    </script>
+  </body>
 </html>
+

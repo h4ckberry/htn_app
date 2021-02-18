@@ -7,6 +7,8 @@ const app = new Vue({
         userId: '',
         statusMessage: '',
         pictureUrl: '',
+        obnizId; '',
+
     },
 
     methods: {
