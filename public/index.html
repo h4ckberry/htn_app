@@ -21,10 +21,6 @@
           <button type="submit" v-on:click="createUser" v-bind:disabled="!isValid" class="btn btn-primary">登録する</button>
         </div>
       </form>
-      <h1>{{form.displayName}}</h1>
-      <p>{{form.userId}}</p>
-      <p>{{form.statusMessage}}</p>
-      <img :src="form.pictureUrl" alt="profile" width="200px" />
     </div>
 
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
