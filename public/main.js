@@ -49,8 +49,8 @@ var app = new Vue({
     validation() {
       const form = this.form;
       return {
-        firstName: !!form.firstName,
-        lastName: !!form.lastName,
+        displayName: !!form.displayName,
+        obnizId: !!form.obnizId,
       };
     },
     isValid() {
