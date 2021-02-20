@@ -3,11 +3,9 @@ const conf = {
   headers: {'Content-Type': 'application/json'}
 }
 const obj = {
-    "body": {
-    "LINE_ID_value": "testIDjijiji",
-    "LINE_NAME_value": "Yano hiroki",
-    "obnizID_value": "2222222"
-    }
+    "LINE_ID_value": "hujikohujiko",
+    "LINE_NAME_value": "tukituki",
+    "obnizID_value": "12344567"
  }
 
 var g_res;
@@ -38,7 +36,7 @@ var app = new Vue({
       this.form.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
     },
     createUser: function() {
-      axios.post(url,conf,obj)
+      axios.post(url,obj)
       .then(function (response) {
         g_res = response;
         console.log(response);
