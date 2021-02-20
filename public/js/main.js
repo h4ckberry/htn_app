@@ -3,10 +3,12 @@ const conf = {
   headers: {'Content-Type': 'application/json'}
 }
 const obj = {
+    body: {
     "LINE_ID_value": "testIDjijiji",
     "LINE_NAME_value": "Yano hiroki",
     "obnizID_value": "2222222"
-  }
+    }
+ }
 
 var g_res;
 var g_error;
