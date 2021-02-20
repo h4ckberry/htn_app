@@ -18,8 +18,8 @@
           <input v-model="form.obnizId" type="tel" id="exampleInput" placeholder="1234-5678"/>
           
           <label for="exampleInput">お風呂に入る時間を決めよう！</label><br>
-          <div style="display:inline-flex" id="timeInput">
-            <select v-model="form.startTime">
+          <div style="display:inline-flex">
+            <select v-model="form.startTime" id="timeInput">
               <option value="">16時</option>
               <option value="">17時</option>
               <option value="">18時</option>
@@ -29,7 +29,7 @@
               <option value="">22時</option>
             </select>
             <h1>~</h1>
-            <select v-model="form.startTime" id="timeInput">
+            <select v-model="form.endTime" id="timeInput">
               <option value="">17時</option>
               <option value="">18時</option>
               <option value="">19時</option>
