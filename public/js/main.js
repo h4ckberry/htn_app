@@ -8,6 +8,7 @@ const obj = {
     "obnizID_value": "2222222"
   }
 
+const g_res = "";
 const g_error = "";
 
 var app = new Vue({
@@ -35,8 +36,9 @@ var app = new Vue({
       this.form.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
     },
     createUser: function() {
-      axios.post(url,obj)
+      axios.post(url,conf,obj)
       .then(function (response) {
+        g_res = response;
         console.log(response);
       })
       .catch(function (error) {
