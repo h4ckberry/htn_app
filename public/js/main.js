@@ -5,7 +5,9 @@ const conf = {
 const obj = {
     "LINE_ID_value": "hujikohujiko",
     "LINE_NAME_value": "tukituki",
-    "obnizID_value": "12344567"
+    "obnizID_value": "12344567",
+    "Start_value": "17:00",
+    "End_value": "19:00"
  }
 
 var g_res;
@@ -21,6 +23,8 @@ var app = new Vue({
         statusMessage: "",
         pictureUrl: "",
         obnizId: "",
+        startTime: "",
+        endTime: "",
       },
     };
   },
@@ -36,6 +40,13 @@ var app = new Vue({
       this.form.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
     },
     createUser: function() {
+      const obj = {
+          "LINE_ID_value": this.form.userId,
+          "LINE_NAME_value": this.form.displayName,
+          "obnizID_value": this.form.obnizId,
+          "Start_value": this.form.startTime,
+          "End_value": this.form.endTime
+       }
       axios.post(url,obj)
       .then(function (response) {
         g_res = response;
@@ -56,12 +67,10 @@ var app = new Vue({
 
     //LINE内のブラウザかどうか
     if (liff.isInClient()) {
-      alert("LINE内のブラウザ");
       this.getProfile(); //LINE内で開いた場合は特にログイン処理なしで大丈夫
     } else {
       //外部ブラウザかどうか
       if (liff.isLoggedIn()) {
-        alert("外部ブラウザ");
         this.getProfile();
       } else {
         liff.login();
