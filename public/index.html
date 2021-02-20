@@ -19,8 +19,29 @@
           
           <label for="exampleInput">お風呂に入る時間を決めよう！</label><br>
           <div style="display:inline-flex">
-            <input v-model="form.startTime"  type="number" id="timeInput"/>
+            <select v-model="form.startTime">
+              <option disabled value="">Please select one</option>
+              <option value="">16時</option>
+              <option value="">17時</option>
+              <option value="">18時</option>
+              <option value="">19時</option>
+              <option value="">20時</option>
+              <option value="">21時</option>
+              <option value="">22時</option>
+            </select>
             <h1>~</h1>
+
+            <select v-model="form.startTime">
+              <option disabled value="">Please select one</option>
+              <option value="">17時</option>
+              <option value="">18時</option>
+              <option value="">19時</option>
+              <option value="">20時</option>
+              <option value="">21時</option>
+              <option value="">22時</option>
+              <option value="">23時</option>
+            </select>
+
             <input v-model="form.endTime"  type="number" id="timeInput"/>
           </div>
 
