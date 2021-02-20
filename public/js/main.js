@@ -35,7 +35,7 @@ var app = new Vue({
       this.form.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
     },
     createUser: function() {
-      axios.post(url, obj)
+      axios.post(url,conf,obj)
       .then(function (response) {
         console.log(response);
       })
