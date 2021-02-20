@@ -1,19 +1,9 @@
-const url = 'https://0ksdu1zi1wgh.cybozu.com/k/v1/record.json'
-const config = {
-        headers: {
-            'X-Cybozu-Authorization': '2Rcx3RVoSLipIH7atPG5w8A8LE5n8sTKSUGHTEEA',
-            'Content-Type': 'application/json'
-        }
-    };
-
+const url = 'https://wt430li74i.execute-api.ap-northeast-1.amazonaws.com/kintonectrlAPI/kintonectrl'
 const obj = {
-  "app": 1,
-  "record": {
-    "text": {
-      "value": "sample text"
-    }
+    "LINE_ID_value": "testIDjijiji",
+    "LINE_NAME_value": "Yano hiroki",
+    "obnizID_value": "2222222"
   }
-};
 
 var app = new Vue({
   el: "#app",
@@ -40,7 +30,7 @@ var app = new Vue({
       this.form.statusMessage = profile.statusMessage; //LINEのステータスメッセージ
     },
     createUser: function() {
-      axios.post(url, obj, config)
+      axios.post(url, obj)
       .then(function (response) {
         console.log(response);
       })
