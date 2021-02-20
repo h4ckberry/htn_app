@@ -8,8 +8,8 @@ const obj = {
     "obnizID_value": "2222222"
   }
 
-const g_res = "";
-const g_error = "";
+var g_res;
+var g_error;
 
 var app = new Vue({
   el: "#app",
