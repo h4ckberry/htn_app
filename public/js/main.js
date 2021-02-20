@@ -1,5 +1,5 @@
 const url = 'https://wt430li74i.execute-api.ap-northeast-1.amazonaws.com/kintonectrlAPI/kintonectrl'
-const conf = "Content-Type": "application/json"
+const conf = headers: {'Content-type': 'text/json'}
 const obj = {
     "LINE_ID_value": "testIDjijiji",
     "LINE_NAME_value": "Yano hiroki",
