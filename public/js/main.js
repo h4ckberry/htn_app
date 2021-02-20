@@ -1,6 +1,6 @@
 const url = 'https://wt430li74i.execute-api.ap-northeast-1.amazonaws.com/kintonectrlAPI/kintonectrl'
 const conf = {
-  headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+  headers: {'Content-Type': 'application/json'}
 }
 const obj = {
     "LINE_ID_value": "testIDjijiji",
