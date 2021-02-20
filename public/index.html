@@ -28,7 +28,7 @@
               <option value="">21時</option>
               <option value="">22時</option>
             </select>
-            <h1>~</h1>
+            <h1>時~</h1>
             <select v-model="form.endTime" id="timeInput">
               <option value="">17時</option>
               <option value="">18時</option>
@@ -38,6 +38,7 @@
               <option value="">22時</option>
               <option value="">23時</option>
             </select>
+            <h1>時</h1>
           </div>
 
           <button type="submit" v-on:click="createUser" v-bind:disabled="!isValid" id="login-button">新規登録する</button
