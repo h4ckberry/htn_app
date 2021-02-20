@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Obniz ID登録</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <img src="assets/logo.png" class="logo-image">
+        <form class="form" id="app">
+          <label for="exampleInput">ユーザー</label>
+          <input v-model="form.displayName"  type="text" id="exampleInput"/>
+          <label for="exampleInput">obnizId</label>
+          <input v-model="form.obnizId" type="tel" id="exampleInput" placeholder="1234-5678"/>
+          <button type="submit" v-on:click="createUser" v-bind:disabled="!isValid" id="login-button">新規登録する</button
+        </form>
+      </div>
+      
+      <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="js/main2.js"></script>
+  </body>
+</html>
+
