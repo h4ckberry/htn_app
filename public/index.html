@@ -19,8 +19,8 @@
           
           <label for="exampleInput">お風呂に入る時間を決めよう！</label>
           <div style="display:inline-flex">
-            <input v-model="form.startTime"  type="number"/>
-            <input v-model="form.endTime"  type="number"/>
+            <input v-model="form.startTime"  type="number" id="timeInput"/>
+            <input v-model="form.endTime"  type="number" id="timeInput"/>
           </div>
 
           <button type="submit" v-on:click="createUser" v-bind:disabled="!isValid" id="login-button">新規登録する</button
