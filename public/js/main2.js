@@ -15,7 +15,7 @@ var app = new Vue({
   methods: {
     createUser: function() {
       axios.post('https://wt430li74i.execute-api.ap-northeast-1.amazonaws.com/kintonectrlAPI/kintonectrl',
-                 {"LINE_ID_value": "testIDjijiji",
+                 {"LINE_ID_value": "aaaaaaaaaaaa",
                  "LINE_NAME_value": "Yano hiroki",
                  "obnizID_value": "2222222"
                  })
